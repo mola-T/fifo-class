@@ -4,6 +4,7 @@
 ;; Author: Mola-T <Mola@molamola.xyz>
 ;; URL: https://github.com/mola-T/fifo
 ;; Version: 1.0
+;; Package-Requires: ((emacs "24"))
 ;; Keywords: lisp
 ;;
 ;;; License:
