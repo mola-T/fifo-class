@@ -27,7 +27,8 @@
 ;;
 ;;; Commentary:
 ;;
-;; Provides first in first out quene for class slot.
+;; FIFO is a library containing an abstract class.
+;; It provides first in first out quene inherited class slot.
 ;;
 
 ;;; Code:
