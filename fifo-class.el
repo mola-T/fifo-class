@@ -1,10 +1,9 @@
-;;; fifo.el --- First in first out abstract class  -*- lexical-binding: t; -*-
+;;; fifo-class.el --- First in first out abstract class  -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (C) 2015-2016 Mola-T
 ;; Author: Mola-T <Mola@molamola.xyz>
-;; URL: https://github.com/mola-T/fifo
+;; URL: https://github.com/mola-T/fifo-class
 ;; Version: 1.0
-;; Package-Requires: ((emacs "24"))
 ;; Keywords: lisp
 ;;
 ;;; License:
@@ -27,18 +26,18 @@
 ;;
 ;;; Commentary:
 ;;
-;; FIFO is a library containing an abstract class.
-;; It provides first in first out quene inherited class slot.
+;; Provides first in first out quene for class slot.
 ;;
 
 ;;; Code:
 (require 'eieio)
-(defclass fifo ()
+
+(defclass fifo-class ()
   ()
   "Inherit this class to get first in first out slot."
   :abstract t)
 
-(defmethod fifo-push ((obj fifo) slot data)
+(defmethod fifo-class-push ((obj fifo-class) slot data)
 
   "First in first out push.
 Push DATA to the back of quene of slot SLOT in object OBJ."
@@ -52,7 +51,7 @@ Push DATA to the back of quene of slot SLOT in object OBJ."
       (setf (eieio-oref obj slot) (list data)))
     t))
 
-(defmethod fifo-pop ((obj fifo) slot)
+(defmethod fifo-class-pop ((obj fifo-class) slot)
 
   "First in first out pop.
 Remove the first element of slot SLOT in object OBJ."
@@ -64,7 +63,7 @@ Remove the first element of slot SLOT in object OBJ."
       (setf (eieio-oref obj slot) (cdr (eieio-oref obj slot)))
       return))
 
-(defmethod fifo-first ((obj fifo) slot)
+(defmethod fifo-class-first ((obj fifo-class) slot)
 
   "Get the first element of the SLOT without removing it."
   
@@ -73,5 +72,5 @@ Remove the first element of slot SLOT in object OBJ."
               (list 'listp 'obj: (eieio-object-class obj) 'slot: slot)))
   (car (eieio-oref obj slot)))
 
-(provide 'fifo)
-;;; fifo.el ends here
+(provide 'fifo-class)
+;;; fifo-class.el ends here
